@@ -18,9 +18,9 @@ export default {
   props: {
     list: Array
   },
-  data (){
-    return{
-      swiperOption:{
+  data () {
+    return {
+      swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
       }
