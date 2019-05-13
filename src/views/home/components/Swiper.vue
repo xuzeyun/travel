@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <!-- v-if="computed" -->
     <swiper :options="swiperOption">
       <!-- slides -->
       <swiper-slide v-for="item of imgList" :key="item.id">
@@ -14,6 +15,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data (){
     return{
       swiperOption:{
@@ -21,9 +25,14 @@ export default {
         loop: true
       },
       imgList:[
-        {id: '01', imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/e0c5d91cb9b435518bb223b81b70874e.jpg_750x200_f2d5c66a.jpg'},
-        {id: '02', imgUrl:'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg'}
+        {id: '01', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/e0c5d91cb9b435518bb223b81b70874e.jpg_750x200_f2d5c66a.jpg'},
+        {id: '02', imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg'}
       ]
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.length
     }
   }
 }
