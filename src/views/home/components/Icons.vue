@@ -4,7 +4,7 @@
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="img-box">
-            <img class="img-content" :src="item.iconUrl" alt="">
+            <img class="img-content" :src="item.imgUrl" alt="">
           </div>
           <p class="img-desc">{{item.desc}}</p>
         </div>
@@ -17,66 +17,22 @@
 <script>
 export default {
   name: 'HomeIcons',
-  data (){
+  props: {
+    list: Array
+  },
+  data () {
     return {
       swiperOption:{
 
-      },
-      iconList:[
-        {
-          id: '01',
-          iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '春季旅游最强攻略'
-        },
-        {
-          id: '02',
-          iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/f0f00d6dfe038c044dbc9a437f58b0eb.png',
-          desc: '夏季'
-        },
-        {
-          id: '03',
-          iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '秋季'
-        },
-        {
-          id: '04',
-          iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/6b7127c142123eabcf3e41c136e0ccc2.png',
-          desc: '东季'
-        },
-        {
-          id: '05',
-          iconUrl: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '滑雪季'
-        },
-        {
-          id: '06',
-          iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/f0f00d6dfe038c044dbc9a437f58b0eb.png',
-          desc: '自驾游'
-        },
-        {
-          id: '07',
-          iconUrl: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '出国游'
-        },
-        {
-          id: '08',
-          iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/6b7127c142123eabcf3e41c136e0ccc2.png',
-          desc: '赏樱季'
-        },
-        {
-          id: '09',
-          iconUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/6b7127c142123eabcf3e41c136e0ccc2.png',
-          desc: '汉服节'
-        }
-      ]
+      }
     }
   },
-  computed:{
-    pages (){
+  computed: {
+    pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
-        const page = Math.floor(index/8)
-        if (!pages[page]){
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)

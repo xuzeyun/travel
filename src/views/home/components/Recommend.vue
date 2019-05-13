@@ -5,13 +5,13 @@
     </div>
     <div class="list">
       <ul>
-        <li class="border-bottom" v-for="item of recList" :key="item.id">
+        <li class="border-bottom" v-for="item of list" :key="item.id">
           <div class="img-box">
             <img class="img-cont" :src="item.imgUrl" alt="">
           </div>
           <div class="text-box">
             <p class="title">{{item.title}}</p>
-            <p class="desc">{{item.intro}}</p>
+            <p class="desc">{{item.desc}}</p>
             <button type="button" name="button">查看详情</button>
           </div>
         </li>
@@ -23,29 +23,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data (){
-    return {
-      recList: [
-        {
-          id: '001',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-          title: '北京刘老根大舞台北京刘老根大舞台北京刘老根大舞台北京刘老根大舞台北京刘老根大舞台北京刘老根大舞台',
-          intro: '赵本山团队集体亮相',
-        },
-        {
-          id: '002',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-          title: '北京刘老根大舞台',
-          intro: '赵本山团队集体亮相',
-        },
-        {
-          id: '003',
-          imgUrl: 'http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_200x200_1bc99086.jpg',
-          title: '北京刘老根大舞台',
-          intro: '赵本山团队集体亮相',
-        }
-      ]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
