@@ -19,7 +19,7 @@
 </template>
 
 <script>
-export default{
+export default {
   name: 'HomeHeader',
   props: {
     city: String
